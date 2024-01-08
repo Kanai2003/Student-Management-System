@@ -42,7 +42,7 @@ const adminLogin = asyncHandler(async (req, res) => {
     const isPasswordMatched = await admin.isPasswordCorrect(password)
 
     if (!isPasswordMatched) {
-        throw new ApiError(400, "Wront password")
+        throw new ApiError(400, "wrong password")
     }
 
     const loggedInAdmin = await Admin.findById(admin._id).select("-password")

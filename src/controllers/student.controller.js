@@ -25,7 +25,7 @@ const studentLogin = asyncHandler(async (req, res) => {
     const isPasswordMatched = await student.isPasswordCorrect(password)
 
     if (!isPasswordMatched) {
-        throw new ApiError(400, "Wront password")
+        throw new ApiError(400, "wrong password")
     }
 
     const loggedInStudent = await Student.findById(student._id).select("-password")
